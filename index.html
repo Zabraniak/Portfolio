@@ -3,311 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michał Zabraniak - Portfolio & CV</title>
+    <title>MZ - Portfolio & CV</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Michał Zabraniak - Portfolio and CV">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --gray: #64748b;
-            --light: #f1f5f9;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .background-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        header {
-            padding: 2rem 0;
-            position: sticky;
-            top: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            color: var(--light);
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--dark-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .experience-grid, .education-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--dark-light);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .card-date {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .card-subtitle {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .card-description {
-            color: var(--light);
-            line-height: 1.8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: var(--dark-light);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        footer {
-            background: var(--dark-light);
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="background-gradient"></div>
@@ -315,37 +15,41 @@
     <header>
         <nav class="container">
             <div class="logo">Michał Zabraniak</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-palette"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="about" class="hero">
             <div class="container">
                 <div class="hero-content">
                     <h1>Michał Zabraniak</h1>
-                    <p class="subtitle">Full Stack Developer | Software Engineer</p>
+                    <p class="subtitle">Community Manager | IT Technician | Software Engineer | CyberSec Enthusiast | Application Support Engineer</p>
                     <p class="description">
-                        Passionate about building elegant solutions to complex problems. 
-                        Specialized in web development with a focus on user experience and performance.
+                        A versatile IT professional with a passion for software development, system security, and community collaboration. Always striving to improve performance, usability, and reliability across every project.
                     </p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/mzabraniak/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                             <i class="fab fa-linkedin-in fa-lg"></i>
                         </a>
-                        <a href="https://github.com/yourusername" class="social-link" target="_blank" aria-label="GitHub">
+                        <a href="https://github.com/Zabraniak" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
                             <i class="fab fa-github fa-lg"></i>
                         </a>
-                        <a href="mailto:your.email@example.com" class="social-link" aria-label="Email">
+                        <a href="mailto:m.zabraniak@wp.pl" class="social-link" aria-label="Email" title="Email">
                             <i class="fas fa-envelope fa-lg"></i>
                         </a>
-                        <a href="https://twitter.com/yourusername" class="social-link" target="_blank" aria-label="Twitter">
-                            <i class="fab fa-twitter fa-lg"></i>
+                        <a href="https://www.instagram.com/sheffskyz/?hl=en" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                            <i class="fab fa-instagram fa-lg"></i>
                         </a>
                     </div>
                 </div>
@@ -357,48 +61,101 @@
                 <h2 class="section-title">Work Experience</h2>
                 <div class="experience-grid">
                     <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Senior Software Engineer</h3>
-                                <p class="card-subtitle">Tech Company Inc.</p>
+                        <div class="card-content">
+                            <div class="card-logo">
+                                <img src="company-logo-1.png" alt="IN Groupe" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%236366f1%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3ETC%3C/text%3E%3C/svg%3E'">
                             </div>
-                            <span class="card-date">2022 - Present</span>
+                            <div class="card-details">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Application Support Engineer</h3>
+                                        <p class="card-subtitle">IN Groupe</p>
+                                    </div>
+                                    <span class="card-date">07.2025 - Present</span>
+                                </div>
+                                <p class="card-description">
+                                    TODO
+                                </p>
+                            </div>
                         </div>
-                        <p class="card-description">
-                            Leading development of scalable web applications using modern technologies. 
-                            Collaborating with cross-functional teams to deliver high-quality software solutions.
-                            Mentoring junior developers and conducting code reviews.
-                        </p>
                     </div>
 
                     <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Software Developer</h3>
-                                <p class="card-subtitle">Innovation Labs</p>
+                        <div class="card-content">
+                            <div class="card-logo">
+                                <img src="company-logo-2.png" alt="IDEMIA" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%238b5cf6%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3EIL%3C/text%3E%3C/svg%3E'">
                             </div>
-                            <span class="card-date">2020 - 2022</span>
+                            <div class="card-details">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Junior Application Support Engineer</h3>
+                                        <p class="card-subtitle">IDEMIA</p>
+                                    </div>
+                                    <span class="card-date">12.2024 - 07.2025</span>
+                                </div>
+                                <p class="card-description">
+                                    TODO
+                                </p>
+                            </div>
                         </div>
-                        <p class="card-description">
-                            Developed and maintained multiple client-facing applications. 
-                            Implemented new features and optimized existing code for better performance.
-                            Worked closely with designers to create intuitive user interfaces.
-                        </p>
                     </div>
 
                     <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="card-title">Junior Developer</h3>
-                                <p class="card-subtitle">StartUp Co.</p>
+                        <div class="card-content">
+                            <div class="card-logo">
+                                <img src="company-logo-3.png" alt="Alternativa Games" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%2310b981%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3ESC%3C/text%3E%3C/svg%3E'">
                             </div>
-                            <span class="card-date">2018 - 2020</span>
+                            <div class="card-details">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Community Manager</h3>
+                                        <p class="card-subtitle">Alternativa Games</p>
+                                    </div>
+                                    <span class="card-date">10.2018 - 11.2023</span>
+                                </div>
+                                <p class="card-description">
+                                    TODO
+                                </p>
+                            </div>
                         </div>
-                        <p class="card-description">
-                            Contributed to the development of web applications using JavaScript frameworks.
-                            Participated in agile development processes and daily standups.
-                            Gained experience in full-stack development and database management.
-                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-logo">
+                                <img src="company-logo-4.png" alt="Alternativa Games" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%2310b981%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3ESC%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="card-details">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Junior Community Manager</h3>
+                                        <p class="card-subtitle">Alternativa Games</p>
+                                    </div>
+                                    <span class="card-date">03.2017 - 10.2018</span>
+                                </div>
+                                <p class="card-description">
+                                    TODO
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-logo">
+                                <img src="company-logo-5.png" alt="The Jacob of Paradies University" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%2310b981%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3ESC%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="card-details">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">IT Technician</h3>
+                                        <p class="card-subtitle">The Jacob of Paradies University</p>
+                                    </div>
+                                    <span class="card-date">03.2017 - 05.2017</span>
+                                </div>
+                                <p class="card-description">
+                                    During my internship at the Jakub of Paradyż Academy, I had the opportunity to gain valuable experience in troubleshooting IT issues on campus, analyzing the academic network, and learning fiber optic welding, among other tasks. Participating in these internships allowed me to expand my practical and theoretical skills.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -411,14 +168,13 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title">Bachelor of Science in Computer Science</h3>
-                                <p class="card-subtitle">University Name</p>
+                                <h3 class="card-title">Computer Science Engineer</h3>
+                                <p class="card-subtitle">Łódź - University of Technology</p>
                             </div>
-                            <span class="card-date">2014 - 2018</span>
+                            <span class="card-date">2019 - 2024</span>
                         </div>
                         <p class="card-description">
-                            Graduated with honors. Focused on software engineering, algorithms, and data structures.
-                            Completed capstone project on machine learning applications.
+                            Graduated with honors. Focused on software engineering, network, and CyberSec.
                         </p>
                     </div>
                 </div>
@@ -428,49 +184,25 @@
         <section id="skills">
             <div class="container">
                 <h2 class="section-title">Skills & Technologies</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Frontend</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vue.js</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">TypeScript</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Backend</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">REST APIs</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Database</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Redis</span>
-                            <span class="skill-tag">MySQL</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Tools & Others</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Agile</span>
-                        </div>
-                    </div>
+                <div class="skills-container">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Agile</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Atlassian</span>
+                    <span class="skill-tag">TBC...</span>
                 </div>
             </div>
         </section>
@@ -478,8 +210,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Michał Zabraniak. All rights reserved.</p>
+            <p>&copy; 2025 Michał Zabraniak. All rights reserved. Powered by Github Pages.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
